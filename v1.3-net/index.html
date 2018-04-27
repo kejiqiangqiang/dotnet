@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTTP文件上传控件演示页面</title>
+    <link href="js/up2.css" type="text/css" rel="Stylesheet"/>
+    <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="js/json2.min.js" type="text/javascript"></script>
+    <script src="js/up2.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div>
+		<a href="http://www.ncmem.com/products/image-uploader/demo/images.aspx" target="_blank">查看上传的文件列表</a></div>
+	<p>
+		说明：由于安全问题暂时屏蔽了asp,aspx,php类型的文件。</p>
+	<ul>
+		<li>如果浏览器无法识别数字证书请下载运行<a href="http://www.ncmem.com/download/rootsupd.rar" target="_blank">Windows数字证书补丁</a>文件</li>
+		<li>如果无法安装控件请下载运行<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf%20" target="_blank">VC库</a></li>
+		<li>如果有任何意见或建议请向我们<a href="http://www.ncmem.com/blog/guestbook.asp" target="_blank">反馈</a></li>
+	</ul>
+    <input id="btnPostLoc" type="button" value="上传本地文件" />
+    <div id="divUpload"></div>
+    <input id="btnPost" type="button" value="开始上传队列" />
+	<script type="text/javascript" language="javascript">
+        var fileMgr = new HttpUploaderMgr();
+        //fileMgr.Config["PostUrl"] = "http://www.ncmem.com/products/upload.asp";
+        fileMgr.Config["PostUrl"] = "http://localhost:4854/asp.net/upload.aspx";
+
+        $(function ()
+        {
+            fileMgr.LoadTo("divUpload");
+            $("#btnPost").click(function ()
+            {
+                fileMgr.postAll();
+            });
+
+            //上传本地文件
+            $("#btnPostLoc").click(function ()
+            {
+                fileMgr.AddFile("D:\\PBSetup70.exe");
+            });
+        });
+	</script>
+</body>
+</html>

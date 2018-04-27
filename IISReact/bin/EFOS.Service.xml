@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EFOS.Service</name>
+    </assembly>
+    <members>
+        <member name="T:EFOS.Service.Apply.AlarmService">
+            <summary>
+            获取报警信息
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.AlarmService.#ctor(System.String)">
+            <summary>
+            获取报警信息
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.AlarmService.GetAlarmByProject(System.Int32)">
+            <summary>
+            获取报警信息
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns>获取报警信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.AlarmService.GetAlarmByPlatform(System.String)">
+            <summary>
+            获取报警信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+            <returns>获取报警信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.AlarmService.ConfirmAlarm(System.Int32)">
+            <summary>
+            确认报警信息
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns>操作是否成功</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.AuthorizeService">
+            <summary>
+            授权服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.AuthorizeService.#ctor(System.String)">
+            <summary>
+            授权服务
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.AuthorizeService.GetUserProject(System.String,System.String,System.Int32)">
+            <summary>
+            获取用户的项目信息
+            </summary>
+            <param name="blocCode">集团编码</param>
+            <param name="mCode">管理部编码</param>
+            <param name="userID">用户编码</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.AuthorizeService.GetUserManagement(System.String,System.String,System.Int32)">
+            <summary>
+            获取用户的管理部信息
+            </summary>
+            <param name="blocCode">集团编码</param>
+            <param name="mCode">管理部编码</param>
+            <param name="userID">用户编码</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.AuthorizeService.GetUserBloc(System.Int32)">
+            <summary>
+            获取用户的集团信息
+            </summary>
+            <param name="userID">用户编码</param>
+            <returns>数据</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.BaseApplyService">
+            <summary>
+            服务基类
+            </summary>
+        </member>
+        <member name="F:EFOS.Service.Apply.BaseApplyService.NameSpace">
+            <summary>
+            调用的命名空间
+            </summary>
+        </member>
+        <member name="P:EFOS.Service.Apply.BaseApplyService.QueryParameter">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.BaseApplyService.#ctor(System.String)">
+            <summary>
+            服务基类,调用WCF反射方法命名空间直接指定为：EFOS.Apply.Service,类名保持和服务类名称一致
+            </summary>
+            <param name="wcfUri">wcf服务地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.BaseApplyService.AddParameter(System.String,System.Object)">
+            <summary>
+            增加参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.BaseApplyService.Execute``1(System.String)">
+            <summary>
+            执行wcf调用
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="methodName">方法名称</param>
+            <returns>数据</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.DataEntryService">
+            <summary>
+            数据录入
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.DataEntryService.#ctor(System.String)">
+            <summary>
+            数据录入
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.DataEntryService.SaveRealData(System.Int32,System.Collections.Generic.List{EFOS.Data.Apply.Model.Data_RealData})">
+            <summary>
+            保存数据
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <param name="realData">数据</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.RealDataService">
+            <summary>
+            实时数据服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.RealDataService.#ctor(System.String)">
+            <summary>
+            实时数据服务
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.RealDataService.GetMeterRealData(System.Int32,System.Int32)">
+            <summary>
+            获取仪表实时数据
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <param name="meterID">计算点编号</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.RealDataService.GetRealData(System.Int32,System.String)">
+            <summary>
+            获取实时数据
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <param name="pointCode">计算点编号</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.RealDataService.GetRealDataByDataKey(System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            根据Key获取实时数据
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <param name="dataKeys">数据Key</param>
+            <returns>数据</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.StatisticalService">
+            <summary>
+            获取项目统计数据
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.StatisticalService.#ctor(System.String)">
+            <summary>
+            获取项目统计数据
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.StatisticalService.GetAlarmStatistical(System.String)">
+            <summary>
+            获取报警统计信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+            <returns>报警统计信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.StatisticalService.GetDeviceStatistical(System.String)">
+            <summary>
+            获取设备统计信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+            <returns>设备统计信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.StatisticalService.GetEnergyStatistical(System.String)">
+            <summary>
+            获取报能耗计信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+            <returns>能耗统计信息</returns>
+        </member>
+        <member name="T:EFOS.Service.Apply.SynchronizeService">
+            <summary>
+            数据同步服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Apply.SynchronizeService.#ctor(System.String)">
+            <summary>
+            数据同步服务
+            </summary>
+            <param name="wcfUri">wcf地址</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.SynchronizeService.SynchronizeProjectData(System.Int32)">
+            <summary>
+            项目数据同步
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns>是否同步成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.SynchronizeService.SynchronizePlatformData">
+            <summary>
+            平台数据同步
+            </summary>
+            <returns>是否同步成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Apply.SynchronizeService.CreateProjectTable(System.Int32)">
+            <summary>
+            创建项目数据库表
+            </summary>
+            <param name="projectCode">项目编号</param>
+        </member>
+        <member name="M:EFOS.Service.Apply.SynchronizeService.DropProjectTable(System.Int32)">
+            <summary>
+            删除项目数据库表
+            </summary>
+            <param name="projectCode">项目编号</param>
+        </member>
+        <member name="T:EFOS.Service.Master.BreakService">
+            <summary>
+            当前断线数据服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.BreakService.GetMasterRedisBreak(System.Int32,EFOS.Redis.MeterType)">
+            <summary>
+            获取数据栈或仪表当前断线情况
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <param name="meterType">仪表类型，Stack,Meter</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.BreakService.GetAllBreakStack">
+            <summary>
+            获取所有数据栈的断线数据
+            </summary>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.BreakService.GetAllBreakMeter">
+            <summary>
+            获取所有仪表的断线数据
+            </summary>
+            <returns>数据</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.CollectDataService">
+            <summary>
+            数据采集服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.CollectDataService.SaveRealDataRedis(System.Int32,System.Collections.Generic.List{System.Object[]})">
+            <summary>
+            将数据存储在内存中
+            </summary>
+            <param name="stackID">数据栈编号</param>
+            <param name="dasData">实时数据</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.CollectDataService.SaveRealDataSQLServer(System.Int32,System.Collections.Generic.List{System.Object[]})">
+            <summary>
+            将实时数据存储在SQL数据库中
+            </summary>
+            <param name="stackID">数据栈编号</param>
+            <param name="dasData">实时数据</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.CollectDataService.SaveAccumulativeDataSQLServer(System.Int32,System.Collections.Generic.List{System.Object[]})">
+            <summary>
+            将累计数据存储在SQL数据库中
+            </summary>
+            <param name="stackID">数据栈编号</param>
+            <param name="dasData">累计数据</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.BaseMasterService">
+            <summary>
+            服务基类
+            </summary>
+        </member>
+        <member name="P:EFOS.Service.Master.BaseMasterService.ApiPath">
+            <summary>
+            api路径
+            </summary>
+        </member>
+        <member name="P:EFOS.Service.Master.BaseMasterService.QueryParameter">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="F:EFOS.Service.Master.BaseMasterService.NameSpace">
+            <summary>
+            调用的命名空间
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.BaseMasterService.#ctor">
+            <summary>
+            服务基类,调用WCF反射方法命名空间直接指定为：EFOS.Master.Service,类名保持和服务类名称一致
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.BaseMasterService.AddParameter(System.String,System.Object)">
+            <summary>
+            增加参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:EFOS.Service.Master.BaseMasterService.Execute``1(System.String)">
+            <summary>
+            执行wcf调用
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="methodName">方法名称</param>
+            <returns>数据</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.ConfigService">
+            <summary>
+            获取配置数据服务wcf
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetPlatform(System.Int32)">
+            <summary>
+            返回平台信息
+            </summary>
+            <param name="userID">用户编号</param>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetIndustry(System.String)">
+            <summary>
+            获取行业信息
+            </summary>
+            <param name="industryCode">行业编号</param>
+            <returns>行业信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAllIndustry">
+            <summary>
+            获取全部行业信息
+            </summary>
+            <returns>行业信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetDeviceTypeDataEntry">
+            <summary>
+            获取设备类型的录入项
+            </summary>
+            <returns>录入项数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAllPlatform">
+            <summary>
+            获取所有平台信息
+            </summary>
+            <returns>平台信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetProject(System.Int32)">
+            <summary>
+            获取项目信息
+            </summary>
+            <param name="projectCode">行业编号</param>
+            <returns>项目信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAllProject">
+            <summary>
+            获取所有平台项目信息
+            </summary>
+            <returns>项目信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.AddProject(EFOS.Data.Master.Model.Apply_Project)">
+            <summary>
+            增加项目
+            </summary>
+            <param name="model">项目信息</param>
+            <returns>是否增加成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.RemoveProject(System.Int32)">
+            <summary>
+            删除项目
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns>是否删除成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetSystem">
+            <summary>
+            获取行业的应用系统
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetWebFunction(System.String)">
+            <summary>
+            获取PC的功能列表
+            </summary>
+            <param name="platformCode"></param>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAppFunction(System.String)">
+            <summary>
+            获取App的功能列表
+            </summary>
+            <param name="platformCode"></param>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetDataItem">
+            <summary>
+            获取数据标识
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetCumulativeDataItem">
+            <summary>
+            获取累计量数据标识
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAlarmType">
+            <summary>
+            获取告警类型
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetManagement">
+            <summary>
+            获取管理部信息
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetDeviceType">
+            <summary>
+            获取设备类型
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetDeviceTypeParams">
+            <summary>
+            获取设备类型参数
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetPlatformByCode(System.String)">
+            <summary>
+            返回平台信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetStack(System.Int32)">
+            <summary>
+            返回数据栈信息
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAllStack">
+            <summary>
+            返回全部数据栈信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetEdasMeter(System.Int32)">
+            <summary>
+            返回Edas仪表信息
+            </summary>
+            <param name="projectCode">项目编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAllEdasMeter">
+            <summary>
+            返回Edas仪表信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetEdasData">
+            <summary>
+            返回Edas数据采集规则信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetEdasModbus">
+            <summary>
+            返回Modbus规则信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetInspectionContent(System.Nullable{System.Int32})">
+            <summary>
+            根据设备类型获取巡检信息
+            </summary>
+            <param name="deviceType">设备类型</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.ConfigService.GetAlarmConfig(System.Int32,System.Int32,System.Collections.Generic.List{EFOS.Data.Apply.Model.Data_RealData})">
+            <summary>
+            根据设备类型，设备编号，额定值获取报警配置清单
+            </summary>
+            <param name="deviceType">设备类型编号</param>
+            <param name="deviceID">设备编号</param>
+            <param name="rateds">额定量</param>
+            <returns>报警配置信息</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.SSOLoginService">
+            <summary>
+            单点登录服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.SSOLoginService.AddSSOUser(EFOS.Redis.SSOUser,System.DateTime)">
+            <summary>
+            登录保存用户信息
+            </summary>
+            <param name="user">用户信息</param>
+            <param name="exp">过期时间</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.SSOLoginService.RemoveSSOUser(System.String)">
+            <summary>
+            删除用户信息
+            </summary>
+            <param name="tokenValue">登录的token</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.SSOLoginService.GetSSOUser(System.String)">
+            <summary>
+            获取登录用户信息
+            </summary>
+            <param name="tokenValue">登录的token</param>
+            <returns>登录对象</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.UserService">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.AddUser(EFOS.Data.Master.Model.Acc_UserInfo,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            增加平台普通用户信息
+            </summary>
+            <param name="model">用户信息</param>
+            <param name="platformCode">平台编码</param>
+            <param name="blocCodes">集团信息</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.UpdateUser(EFOS.Data.Master.Model.Acc_UserInfo,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            修改平台普通用户信息
+            </summary>
+            <param name="model">用户信息</param>
+            <param name="platformCode">平台编码</param>
+            <param name="blocCodes">集团信息</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.RemoveUser(System.Int32,System.String)">
+            <summary>
+            删除平台普通用户信息
+            </summary>
+            <param name="userID">用户编号</param>
+            <param name="platformCode">平台编码</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.GetUserByAccount(System.String)">
+            <summary>
+            根据帐号查询用户信息
+            </summary>
+            <param name="account">用户帐号</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.GetUserByUserID(System.Int32)">
+            <summary>
+            根据编号查询用户信息
+            </summary>
+            <param name="userID">用户帐号</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.GetUserByPlatformCode(System.String)">
+            <summary>
+            根据平台编号查询用户信息
+            </summary>
+            <param name="platformCode">平台编号</param>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.ResetPassword(System.Int32,System.String)">
+            <summary>
+            重置用户密码
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.GetAllUsers">
+            <summary>
+            获取所有用户信息
+            </summary>
+            <returns>用户信息</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.UserService.GetUserPlatform(System.Int32)">
+            <summary>
+            获取用户的平台信息
+            </summary>
+            <returns>平台信息</returns>
+        </member>
+        <member name="T:EFOS.Service.Master.WeatherService">
+            <summary>
+            天气服务
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.Master.WeatherService.GetTodayWeather(System.String)">
+            <summary>
+            获取当天气信息
+            </summary>
+            <param name="cityCode">城市编码</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:EFOS.Service.Master.WeatherService.GetHisDayWeather(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            获取历史天气数据
+            </summary>
+            <param name="cityCode">城市编码</param>
+            <param name="beginDate">开始时间</param>
+            <param name="endTime">结束时间</param>
+            <returns>历史天气数据</returns>
+        </member>
+        <member name="T:EFOS.Service.WebapiHttpRequest">
+            <summary>
+            webapi请求
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.WebapiHttpRequest.CreateHttpPostResponse(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            模拟http post请求
+            </summary>
+            <param name="url"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFOS.Service.WebapiHttpRequest.CreateHttpGetResponse(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            模拟http get请求
+            </summary>
+            <param name="url"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EFOS.Service.WebapiRemoteData">
+            <summary>
+            通过webapi读取服务数据
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.WebapiRemoteData.Load``1(EFOS.Action.MethodParams,System.String)">
+            <summary>
+            加载远程数据或控制远程方法
+            </summary>
+        </member>
+        <member name="T:EFOS.Service.WcfRemoteData">
+            <summary>
+            通过WCF读取服务数据
+            </summary>
+        </member>
+        <member name="M:EFOS.Service.WcfRemoteData.GetActionClient(System.String)">
+            <summary>
+            获取ActionClient
+            </summary>
+            <param name="remoteServerHost">主机地址</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:EFOS.Service.WcfRemoteData.Load``1(EFOS.Service.WcfMethodParams,System.String)">
+            <summary>
+            加载远程数据或控制远程方法
+            </summary>
+        </member>
+    </members>
+</doc>

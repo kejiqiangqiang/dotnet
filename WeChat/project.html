@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+    <title>项目申报</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <link href="css/ionic.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/project.css" />
+    <!--<script src="http://api.map.baidu.com/api?v=2.0&ak=4X7bxKw5uALPGEGRHNUIeSVGlGN7iRAV"></script>-->
+    <!--<script src="convert.js"></script>-->
+    <script type="text/javascript" src="js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="projectCtrl" ng-click="hiddenSelectContainer()">
+
+    <div class="project-content">
+        <div class="input-container">
+            <span>项目名称：</span>
+            <input type="text" ng-model="project.ProjectName" />
+        </div>
+        <div>
+            <div class="input-container" ng-click="toggleSelectState($event)">
+                <span>管道连接方式：</span>
+                <label>{{currentSelected.value}}</label>
+                <span class="toggleDown"></span>
+            </div>
+            <div class="option_container" ng-show="isSelected">
+                <ul>
+                    <li ng-click="select(1)"><span>串联</span></li>
+                    <li ng-click="select(0)"><span>并联</span></li>
+                </ul>
+            </div>
+            <div class="img-description" ng-class="currentSelected.class"></div>
+        </div>
+        <div class="project-info">
+            <div class="project-item" ng-repeat="device in devices track by $index">
+                <span>{{device.deviceTypeName}}台数(台)</span>
+                <span class="project-control">
+                    <span class="button" ng-click="toggleValue($index,-1)">-</span>
+                    <input type="number" maxlength="1" ng-model="device.amount" readonly />
+                    <span class="button" ng-click="toggleValue($index,1)">+</span>
+                </span>
+            </div>
+        </div>
+        <div class="project-buttons">
+            <button class="button" ng-click="projectSubmit()">申报</button>
+        </div>
+
+        <div class="box" ng-show="load.isLoading">
+            <div class="loader">
+                <div class="loading-3">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+                <div class="project-result">{{load.result}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

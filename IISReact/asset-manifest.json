@@ -1,0 +1,20 @@
+{
+  "boot.js": "boot.js",
+  "main.css": "static/css/main.75a6dba1.css",
+  "main.js": "static/js/main.0ffc604c.js",
+  "static\\media\\001.png": "static/media/001.1bab5f59.png",
+  "static\\media\\002.png": "static/media/002.2790e145.png",
+  "static\\media\\003.png": "static/media/003.1b3dfb74.png",
+  "static\\media\\004.png": "static/media/004.f766c196.png",
+  "static\\media\\005.png": "static/media/005.c60e7ea0.png",
+  "static\\media\\airport.png": "static/media/airport.4b86bbb9.png",
+  "static\\media\\bg_chinamap.png": "static/media/bg_chinamap.9e147f8c.png",
+  "static\\media\\businessBuilding.png": "static/media/businessBuilding.1638538d.png",
+  "static\\media\\chemicals.png": "static/media/chemicals.c4a0c8e6.png",
+  "static\\media\\datacenter.png": "static/media/datacenter.e02b6f81.png",
+  "static\\media\\hotel.png": "static/media/hotel.af600c12.png",
+  "static\\media\\house.png": "static/media/house.914543bf.png",
+  "static\\media\\loading.gif": "static/media/loading.ead84d74.gif",
+  "static\\media\\logo.svg": "static/media/logo.5d5d9eef.svg",
+  "vender.js": "vender.js"
+}

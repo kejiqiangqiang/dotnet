@@ -1,0 +1,6 @@
+E:\Demo\HttpRequest.Head\HttpRequest.Head\bin\Debug\HttpRequest.Head.dll
+E:\Demo\HttpRequest.Head\HttpRequest.Head\bin\Debug\HttpRequest.Head.pdb
+E:\Demo\HttpRequest.Head\HttpRequest.Head\bin\Debug\Newtonsoft.Json.dll
+E:\Demo\HttpRequest.Head\HttpRequest.Head\obj\Debug\HttpRequest.Head.csprojResolveAssemblyReference.cache
+E:\Demo\HttpRequest.Head\HttpRequest.Head\obj\Debug\HttpRequest.Head.dll
+E:\Demo\HttpRequest.Head\HttpRequest.Head\obj\Debug\HttpRequest.Head.pdb
