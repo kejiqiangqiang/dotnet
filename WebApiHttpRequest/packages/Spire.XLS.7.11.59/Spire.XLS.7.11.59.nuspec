@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Spire.XLS</id>
+    <version>7.11.59</version>
+    <title>Spire.XLS for .NET</title>
+    <authors>E-iceblue</authors>
+    <owners>E-iceblue</owners>
+    <licenseUrl>http://www.e-iceblue.com/Knowledgebase/Licensing/License-Agreement.html</licenseUrl>
+    <projectUrl>http://www.e-iceblue.com/Introduce/excel-for-net-introduce.html</projectUrl>
+    <iconUrl>http://www.e-iceblue.com/images/product_logo/product_buy/xlsnet.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Spire.XLS for .NET is a professional .NET Excel component to enables developers to generate, write, edit and save Excel files with C# and Visual Basic in .NET 2.0, .NET 3.5, .NET 4.0, .NET 4.0 ClientProfile, and .NET 4.5
+Spire.XLS for .NET also enables developers to convert Excel to other popular formats, such as PDF, XML, HTML, CSV, Image format etc. And, it supports developers to export data from database to Excel or import data from Excel to datatable. 
+With Spire.XLS for .NET, developers can create any types of ASP.NET web responses and WinForms applications to operate Excel files.</description>
+    <summary>a professional Excel component to enables developers to generate, write, edit and save Excel files in .NET 2.0, .NET 3.5, .NET 4.0, .NET 4.0 ClientProfile, and .NET 4.5.
+Spire.XLS for .NET also enables developers to convert Excel to other popular formats, such as PDF, XML, HTML, CSV, Image format etc. And, it supports developers to export data from database to Excel or import data from Excel to datatable.</summary>
+    <releaseNotes>Spire.XLS 7.11 .59
+Spire.XLS supports to export chart when converting Excel to HTML.
+Fixes the issue that caused exception when getting the first column.
+Fixes the issue that the inner Group collapsed wrongly when creating multiple Groups.
+Fixes the issue that caused wrong image when converting Excel to image.
+Fixes the issue that caused OverflowException when loading an Excel file.
+Fixes the issue that caused NullReferenceException when copying a worksheet.
+
+
+Spire.XLS 7.11 .49
+
+Add AddAllowEditRange method to allow user to edit the specified range while protect sheet.
+Fixes the issue that caused extra blank page when converting Excel to PDF.
+Fixes the issue that caused wrong format when converting Excel to PDF.
+Fixes the issue that caused wrong format of table when inserting a row into table.
+Fixes the issue that caused process hanging when loading the Excel file.
+Fixes the issue that caused ArgumentOutOfRnageException when loading the excel file.
+
+Spire.XLS 7.11 
+
+Starts to support save Excel to SVG file format.</releaseNotes>
+    <copyright>Copyright © 2017 e-iceblue. All Rights Reserved.</copyright>
+    <language>en-US</language>
+    <tags>.xlsb .xlsx .xlsm .ods Excel worksheet spreadsheet xls .xml .csv excel to xps</tags>
+  </metadata>
+</package>
