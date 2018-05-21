@@ -1,3 +1,12 @@
 E:\DemoProject\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.exe
 E:\DemoProject\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
 E:\DemoProject\WinFormUploadProcessBar\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.csprojResolveAssemblyReference.cache
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.Form1.resources
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.Properties.Resources.resources
+E:\github.com\dotnet\WinFormUploadProcessBar\WindowsApplication2\obj\Debug\WindowsApplication2.csproj.GenerateResource.Cache
