@@ -129,5 +129,33 @@ namespace RegularExpression
             return value;
         }
 
+        /// <summary>
+        /// --1.贪婪式与非贪婪式（懒惰模式或惰性模式）
+        /// --2.贪婪模式的量词，也叫做匹配优先量词，包括：“{m,n}”、“{m,}”、“?”、“*”和“+”
+        /// --3.匹配优先量词后加上“?”，即变成属于非贪婪模式的量词，“{m,n}?”、“{m,}?”、“??”、“*?”和“+?”
+        /// 4.SQLConnectionString = @"Data Source=192.168.3.179;timeout=210;Initial Catalog=EFOS.Community;User ID=sa;Password=111111";
+        /// 5.new Regex(@"Initial Catalog=([\s\S]+?);").Match(sqlConnectionString).Result("$1")
+        /// 6.返回：EFOS.Community
+        /// --7.Regex.Match.Result(@"$1")--包括替换字符串中的由 number标识的捕获组所匹配的最后一个子字符串
+        /// 根据历史数据是否存储为最新数据判断平台是否正常运行(以结果为导向)
+        /// </summary>
+        /// <param name="dateNow"></param>
+        /// <param name="sqlConnectionString"></param>
+        /// <returns></returns>
+        [BusinessMethod]
+        public bool isNormalRunning(DateTime dateNow, string sqlConnectionString)
+        {
+            bool isRunning = true;
+            string dbName = new Regex(@"Initial Catalog=([\s\S]+?);").Match(sqlConnectionString).Result("$1") + dateNow.ToString("yyyyMM");
+            string tableName = "EFOS_HisData" + dateNow.ToString("dd");
+            this.Apply_PlatformDao.DataContext.Connection.ChangeDatabase(dbName);
+            string sql = @" select top 1 ProjectCode from " + tableName + @"
+                            where DataCode=1 and PointCode not like 'P%' and CollectTime >='" + dateNow.AddMinutes(-10) + @"'
+";
+            var sqlDataReader = this.Apply_PlatformDao.ExecuteReader(sql);
+            isRunning = sqlDataReader.HasRows;
+            return isRunning;
+        } 
+
     }
 }
