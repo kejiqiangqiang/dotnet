@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<DocumentElement>
+  <Server>
+    <!--地址-->
+    <Host>127.0.0.1</Host>
+    <!--端口号-->
+    <Port>64254</Port>
+    <!--服务启动依赖项-->
+    <ServiceDependedOns>MSSQLSERVER</ServiceDependedOns>
+    <!--服务名称-->
+    <ServiceName>MyTaskService</ServiceName>
+  </Server>
+</DocumentElement>

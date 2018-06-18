@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFDuplexClientBaseApplication", "WCFDuplexClientBaseApplication\WCFDuplexClientBaseApplication.csproj", "{325ABA00-C6A1-4167-BF20-EB41E5AC3421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsService\WindowsService.csproj", "{5218FAAB-EBAD-4CCE-B33F-AA6AF7E1D9BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{325ABA00-C6A1-4167-BF20-EB41E5AC3421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325ABA00-C6A1-4167-BF20-EB41E5AC3421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325ABA00-C6A1-4167-BF20-EB41E5AC3421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325ABA00-C6A1-4167-BF20-EB41E5AC3421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5218FAAB-EBAD-4CCE-B33F-AA6AF7E1D9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5218FAAB-EBAD-4CCE-B33F-AA6AF7E1D9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5218FAAB-EBAD-4CCE-B33F-AA6AF7E1D9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5218FAAB-EBAD-4CCE-B33F-AA6AF7E1D9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
