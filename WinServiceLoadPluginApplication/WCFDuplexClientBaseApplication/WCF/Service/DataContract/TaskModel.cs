@@ -10,7 +10,7 @@ namespace WCFDuplexClientBaseApplication
     public class TaskModel
     {
         /// <summary>
-        /// 编号
+        /// 线程任务编号
         /// </summary>
         [DataMember]
         public string TaskId { get; set; }

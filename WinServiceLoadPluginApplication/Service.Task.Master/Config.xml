@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <Group TextName="地址配置">
+    <ConnectionString   TextName="运营数据库地址" Value="Data Source=192.168.3.179;timeout=210;Initial Catalog=EFOS.Master;User ID=sa;Password=111111"  Type="String" />
+    <RedisPath TextName="运营Redis地址" Value="192.168.3.179/0"  Type="String" />
+    <WCFPort   TextName="运营WCF端口" Value="8000"  Type="String" />
+    <NetEaseAppKey   TextName="网易短信appKey" Value="37ca2a6ee2d243046f5124a4d9627a87"  Type="String" />
+    <NetEaseAppSecret   TextName="网易短信appSecret" Value="273d67bc628c"  Type="String" />
+    <NetEaseTemplateId   TextName="网易短信templateid" Value="4082635"  Type="String" />
+  </Group>
+</Config>

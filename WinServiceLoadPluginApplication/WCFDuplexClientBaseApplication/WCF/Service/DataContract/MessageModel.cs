@@ -29,22 +29,5 @@ namespace WCFDuplexClientBaseApplication
         [DataMember]
         public string PluginId { get; set; } 
     }
-    /// <summary>
-    /// 消息类型
-    /// </summary>
-    public enum MessageType
-    {
-        /// <summary>
-        /// 消息
-        /// </summary>
-        Message = 1,
-        /// <summary>
-        /// 警告
-        /// </summary>
-        Warning = 2,
-        /// <summary>
-        /// 错误
-        /// </summary>
-        Error = 3
-    }
+    
 }

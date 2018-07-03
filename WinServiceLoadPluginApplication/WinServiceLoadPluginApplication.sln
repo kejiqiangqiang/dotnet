@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication", "WindowsFormsApplication\WindowsFormsApplication.csproj", "{208242F0-A762-4E11-B9F4-F0E5D360C630}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Task", "Service.Task", "{1D44A80C-97C7-49A1-A91B-28270FF2A5D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Task.Master", "Service.Task.Master\Service.Task.Master.csproj", "{5759E275-F7CF-4E1C-B6D3-9F39B0A69439}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{208242F0-A762-4E11-B9F4-F0E5D360C630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{208242F0-A762-4E11-B9F4-F0E5D360C630}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{208242F0-A762-4E11-B9F4-F0E5D360C630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5759E275-F7CF-4E1C-B6D3-9F39B0A69439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5759E275-F7CF-4E1C-B6D3-9F39B0A69439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5759E275-F7CF-4E1C-B6D3-9F39B0A69439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5759E275-F7CF-4E1C-B6D3-9F39B0A69439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5759E275-F7CF-4E1C-B6D3-9F39B0A69439} = {1D44A80C-97C7-49A1-A91B-28270FF2A5D9}
 	EndGlobalSection
 EndGlobal

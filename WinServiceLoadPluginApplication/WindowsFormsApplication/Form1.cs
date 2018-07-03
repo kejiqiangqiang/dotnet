@@ -19,6 +19,11 @@ namespace WindowsFormsApplication
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 点击按钮获取插件列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             string serverName = ServiceConfig.ServiceName;

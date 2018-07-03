@@ -21,23 +21,23 @@ namespace WCFDuplexClientBaseApplication
         public IEnumerable<PluginModel> GetPlugins()
         {
             List<PluginModel> models = new List<PluginModel>();
-            //foreach (var item in ServerApplication.Plugins)
-            //{
-            //    PluginModel model = new PluginModel();
-            //    model.PluginName = item.PluginName;
-            //    model.PluginId = item.PluginId;
-            //    model.PluginPath = item.PluginPath;
-            //    models.Add(model);
-            //}
-            //简单操作处理
             foreach (var item in ServerApplication.Plugins)
             {
                 PluginModel model = new PluginModel();
-                model.PluginName = "插件名称";
-                model.PluginId = "插件Id";
-                model.PluginPath = "插件路径";
+                model.PluginName = item.PluginName;
+                model.PluginId = item.PluginId;
+                model.PluginPath = item.PluginPath;
                 models.Add(model);
             }
+            ////简单操作处理
+            //foreach (var item in ServerApplication.Plugins)
+            //{
+            //    PluginModel model = new PluginModel();
+            //    model.PluginName = "插件名称";
+            //    model.PluginId = "插件Id";
+            //    model.PluginPath = "插件路径";
+            //    models.Add(model);
+            //}
             return models;
         }
 
@@ -48,7 +48,13 @@ namespace WCFDuplexClientBaseApplication
         /// <returns></returns>
         public string GetPluginConfig(string pluginId)
         {
-            return null;
+            string xml = null;
+            PluginBase plugin = ServerApplication.Plugins.Where(p => p.PluginId == pluginId).FirstOrDefault();
+            if (plugin!=null)
+            {
+                xml=plugin.ConfigXml;
+            }
+            return xml;
         }
 
         /// <summary>
@@ -59,6 +65,11 @@ namespace WCFDuplexClientBaseApplication
         /// <returns>是否成功</returns>
         public bool SaveConfig(string pluginId, string xmlConfig)
         {
+            PluginBase plugin = ServerApplication.Plugins.Where(p => p.PluginId == pluginId).FirstOrDefault();
+            if (plugin != null)
+            {
+                plugin.ConfigXml = xmlConfig;
+            }
             return true;
         }
 
@@ -69,7 +80,26 @@ namespace WCFDuplexClientBaseApplication
         /// <returns></returns>
         public IEnumerable<TaskModel> GetPluginTasks(string pluginId)
         {
-            return null;
+            List<TaskModel> taskModels = new List<TaskModel>();
+            PluginBase plugin = ServerApplication.Plugins.Where(p => p.PluginId == pluginId).FirstOrDefault();
+            if (plugin != null&&plugin.Tasks!=null)
+            {
+                foreach (var task in plugin.Tasks)
+                {
+                    taskModels.Add(new TaskModel
+                    {
+                        TaskId = task.TaskId,
+                        TaskName = task.TaskName,
+                        IntervalTime = task.IntervalTime,
+                        Status = task.Status.ToString(),
+                        ErrorCount = task.ErrorCount,
+                        ExecSecond = task.ExecSecond,
+                        LastErrorInfo = task.LastErrorInfo,
+                        LastErrorTime = task.LastErrorTime
+                    });
+                }
+            }
+            return taskModels;
         }
 
         /// <summary>
@@ -81,6 +111,34 @@ namespace WCFDuplexClientBaseApplication
         /// <returns>是否成功</returns>
         public bool Control(string pluginId, string taskId, TaskControlType type)
         {
+            PluginBase plugin = ServerApplication.Plugins.Where(p => p.PluginId == pluginId).FirstOrDefault();
+            if (plugin != null && plugin.Tasks != null)
+            {
+                TaskBase task = plugin.Tasks.Where(p => p.TaskId == taskId).FirstOrDefault();
+                if (task != null)
+                {
+                    switch (type)
+                    {
+                        case TaskControlType.None:
+                            break;
+                        case TaskControlType.ReSet:
+                            task.ReSet();
+                            break;
+                        case TaskControlType.Suspend:
+                            break;
+                        case TaskControlType.Resume:
+                            break;
+                        case TaskControlType.Abort:
+                            task.Abort();
+                            break;
+                        case TaskControlType.Start:
+                            task.Start();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
             return true;
         }
 
