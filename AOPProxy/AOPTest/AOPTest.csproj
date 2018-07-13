@@ -56,11 +56,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business.Dao\Business.Dao.csproj">
+    <ProjectReference Include="..\Business.Dao\Business.Dao.csproj">
       <Project>{bbbe5e92-e330-464c-a20f-c2715e3dcd2f}</Project>
       <Name>Business.Dao</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinessProxy.csproj">
+    <ProjectReference Include="..\BusinessProxy\BusinessProxy.csproj">
       <Project>{a660fe32-33c1-42b4-800f-8b7db65f521d}</Project>
       <Name>BusinessProxy</Name>
     </ProjectReference>
