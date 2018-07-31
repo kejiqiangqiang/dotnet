@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>测试</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<body>
+    <button id="btnTest">Api测试</button>
+    <div id="result" style="width:100%;height:100px; overflow:scroll;word-wrap: break-word;">
+    </div>
+
+    <div id="error" style="width:100%;height:200px; overflow:scroll;word-wrap: break-word;">
+    </div>
+    
+    <script>
+        var url = "";
+
+        $("#btnTest").on("click", function () {
+            var projectCode = 7;
+            var ps = [2, 7, 10, 13, 15, 16, 17, 19, 74, 79, 80, 84, 85, 87, 90, 94, 96, 98, 103, 104, 106, 107, 108, 109, 110, 111, 113, 114, 122, 123, 126, 128, 129, 130, 131, 135, 136, 139, 140, 141, 142, 143, 144, 145, 146, 147, 200, 201, 2565, 10018, 10022, 10104, 10107, 10108, 10116, 10117, 10200, 10208, 21116, 21181, 21182, 30047, 30090, 30091, 30092, 30104, 30192, 30193, 30194, 30195, 30196, 30197, 51127, 51139, 51140, 51142, 51144, 60006, 70010];
+
+            var i = 0;
+            var n = 0;
+            window.setInterval(function () {
+                if (i == 79) { i = 0; }
+                n++;
+
+                $.ajax({
+                    url: url,
+                    data: { projectCode: i },
+                    type: 'post',
+                    dataType: 'text',
+                    success: function (data, textStatus, jqXHR) {
+                        $("#result").html("执行次数：" + n+",执行结果:" + data);
+                    },
+                    error: function (res, textStatus, jqXHR) {
+                        var html = $("#error").html();
+                        $("#error").html(html + "<br/>" + res.responseText);
+                    }
+                });
+
+                i++;
+            }, 1000);
+
+        });
+
+    </script>
+
+
+    <script>
+        //$.ajax({
+        //    url: "",
+        //    data: { projectCode: 10 },
+        //    type: 'post',
+        //    dataType: 'json',
+        //    success: function (data, textStatus, jqXHR) {
+        //        $("#result").html(data.data.length);
+        //    },
+        //    error: function (res, textStatus, jqXHR) {
+        //        var html = $("#error").html();
+        //        $("#error").html(html + "<br/>" + res.responseText);
+        //    }
+        //});
+    </script>
+</body>
+</html>
