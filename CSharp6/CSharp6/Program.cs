@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
+//vs2015及以上版本
 namespace CSharp6
 {
     /// <summary>
@@ -71,10 +72,75 @@ namespace CSharp6
     /// </summary>
     class Program
     {
-        public string Name => "适用于方法和只读属性";//framework4.6及以上版本，vs2015及以上版本
+        public static string Name => "适用于方法和只读属性";//vs2015 c#6
+
+        public string LastName
+        {
+            get;
+            //private set;
+        } = "LastName";//vs2015 c#6
+        public string FirstName
+        {
+            //vs2017 c#7
+            get => "FirstName";
+            private set => value = value ?? "Default";
+
+        }
+
+        private Predicate<MethodInfo> _filter;
+        Predicate<MethodInfo> Filter
+        {
+            get { return _filter; }
+            set
+            {
+                if (value == null)
+                {
+                    _filter = m => true;
+                }
+                else
+                {
+                    _filter = value;
+                }
+            } }
+
+        public Program()
+        {
+            _filter = m => true;
+        }
+
+        public string MyMethod(string title) => $"{title}:{LastName}, {FirstName}";//vs2015 c#6
+        public string MyMethod1(Struct model) => $"{model?.Id},{model?.Name ?? "Default"}{LastName}, {FirstName}";//vs2015 c#6
+
+        public EventHandler SomethingHappened { get; set; }
+
+        public void MyEventHandle(object sender,EventArgs eventArgs)
+        {
+            //normal
+            var handler = this.SomethingHappened;
+            if (handler != null)
+                handler(this, eventArgs);
+
+            // Not recommended
+            if (this.SomethingHappened != null)
+                this.SomethingHappened(this, eventArgs);
+
+            //vs2015 c#6
+            // preferred in C# 6:
+            this.SomethingHappened?.Invoke(this, eventArgs);
+        }
+
+
         static void Main(string[] args)
         {
+            Console.WriteLine(Program.Name);
+            Console.ReadKey();
         }
-        
+
+        public class Struct
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
     }
 }
