@@ -36,7 +36,6 @@ namespace SocketClient
         /// <param name="e"></param>
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            this.btnConnect.Enabled = false;
             //创建套接字监听
             this.socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ipAddress = IPAddress.Parse(this.textIP.Text);//127.0.0.1
@@ -46,8 +45,12 @@ namespace SocketClient
             {
                 //客户端套接字连接到服务端网络节点上，用的是Socket.Connect(IPEndPoint)
                 this.socketClient.Connect(endPoint);
+
+                this.btnConnect.Enabled = false;
                 this.btnSendMsg.Visible = true;
+                this.btnSendMsg.Enabled = true;
                 this.textSendMsg.Visible = true;
+                this.textSendMsg.Enabled = true;
             }
             catch (Exception)
             {
@@ -106,6 +109,9 @@ namespace SocketClient
                 }
                 catch (Exception)
                 {
+                    this.btnConnect.Enabled = true;
+                    this.btnSendMsg.Enabled = false;
+                    this.textSendMsg.Enabled = false;
                     this.richTextMsg.AppendText("远程服务器已经中断连接" + "\r\n");
                     Debug.WriteLine("远程服务器已经中断连接" + "\r\n");
                     break;
@@ -117,13 +123,30 @@ namespace SocketClient
         {
             //字符串转换为机器可以识别的字节数组 
             byte[] arrSendMsg = Encoding.UTF8.GetBytes(msg);
-            //调用客户端套接字发送字节
-            this.socketClient.Send(arrSendMsg);
 
             var text = "我：" + CurrentTime() + "\r\n" + msg + "\r\n";
             this.richTextMsg.AppendText(text);
             Debug.WriteLine(text);
 
+            
+            //调用客户端套接字发送字节
+            this.socketClient.Send(arrSendMsg);
+
+            //若服务器中断，在Socket.Receive()即可先抛出异常
+            //try
+            //{
+            //    //调用客户端套接字发送字节
+            //    this.socketClient.Send(arrSendMsg);
+            //}
+            //catch (Exception)
+            //{
+            //    //若服务器中断，在Socket.Receive()即可先抛出异常
+            //    //this.btnSendMsg.Enabled = false;
+            //    //this.textSendMsg.Enabled = false;
+            //    this.richTextMsg.AppendText("远程服务器已经中断连接，请稍后重试！" + "\r\n");
+            //    Debug.WriteLine("远程服务器已经中断连接，请稍后重试！" + "\r\n");
+            //}
+            
         }
 
         static DateTime CurrentTime()
