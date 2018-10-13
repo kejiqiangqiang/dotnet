@@ -70,6 +70,36 @@ namespace MianShi
         //}
         #endregion
 
+        #region 子类调用父类构造方法+重写虚方法
+        public class Person
+        {
+            protected int Age = 10;
+            protected Person()
+            {
+                this.Show();
+            }
+            protected virtual void Show()
+            {
+                Console.WriteLine(this.Age);
+            }
+        }
+        public class Employee : Person
+        {
+            public Employee()
+            {
+                base.Age = 20;
+            }
+            protected override void Show()
+            {
+                base.Show();
+            }
+        }
+        //static void Main(string[] args)
+        //{
+        //    Employee e = new Employee(); Console.ReadKey();//10
+        //}
+        #endregion
+
         #region 堆、堆排序、TopK
 
         //static void Main(string[] args)
@@ -199,7 +229,110 @@ namespace MianShi
 
         #endregion
 
+        #region 数组倒置、翻转
 
+        /// <summary>
+        /// 倒置
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        static void reverse(int[] arr, int n)
+        {
+            for (int i = 0; i < n / 2; i++)
+            {
+                //一般交换操作
+                //int temp = arr[i];
+                //arr[i] = arr[n-1-i];
+                //arr[n - 1 - i] = temp;
+
+                //异或交换操作
+                //A=A^B;B=A^B;A=A^B;
+                arr[i] ^= arr[n - 1 - i];
+                arr[n - 1 - i] = arr[i] ^ arr[n - 1 - i];
+                arr[i] ^= arr[n - 1 - i];
+            }
+        }
+
+        /// <summary>
+        /// 倒置
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        static void reverse(int[] arr, int left, int right)
+        {
+            if (left < 0 || right < 0)
+            {
+                return;
+            }
+            while (left < right)
+            {
+                //一般交换操作
+                //int temp = arr[i];
+                //arr[i] = arr[n-1-i];
+                //arr[n - 1 - i] = temp;
+
+                //异或交换操作
+                //A=A^B;B=A^B;A=A^B;
+                arr[left] ^= arr[right];
+                arr[right] = arr[left] ^ arr[right];
+                arr[left] ^= arr[right];
+
+                left++; right--;
+            }
+        }
+
+        /// <summary>
+        /// 翻转
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        /// <param name="r"></param>
+        static void rotate(int[] arr, int n, int r)
+        {
+            r %= n;
+            //前半部分倒置
+            reverse(arr, r);
+            //后半部分倒置
+            //reverse(arr+r, n-r);//arr+r指针
+            reverse(arr, r, n - 1);
+            //整体倒置
+            reverse(arr, n);
+        }
+
+
+        #region 字符串逆置
+
+        public static string reverseRecursive(string s)
+        {
+            int length = s.Length;
+            if (length <= 1)
+                return s;
+            string left = s.Substring(0, length / 2);
+            string right = s.Substring(length / 2, length - length / 2);
+            string afterReverse = reverseRecursive(right) + reverseRecursive(left);
+            return afterReverse;
+        }
+        #endregion
+
+        //static void Main(string[] args)
+        //{
+        //    int[] arr = { 1,2,3,4,5,6,7};
+        //    //reverse(arr,arr.Length);
+        //    rotate(arr,arr.Length,5);
+        //    var s = reverseRecursive("12345abc");
+        //}
+
+        #endregion
+
+        #region 排序
+
+
+
+        #endregion
+
+        #region 小测试
+
+        #endregion
 
     }
 
