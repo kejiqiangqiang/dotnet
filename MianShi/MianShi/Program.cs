@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MianShi
 {
+
+
     class Program
     {
-
         #region 静态类加载过程
         //static void Main(string[] args)
         //{
@@ -326,14 +327,193 @@ namespace MianShi
 
         #region 排序
 
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 6, 2, 3, 1, 5, 4, 9, 8, 7 };
 
+            //BubbleSort(arr);
+
+            //QuickSort(arr, 0, arr.Length - 1);
+
+            //SelectSort(arr, arr.Length);
+
+            //int[] temp = new int[arr.Length];
+            //MergeSort(arr, 0, arr.Length - 1, temp);
+
+
+
+        }
+        /*
+         * 1.冒泡排序--O(n^2)
+         * */
+        static void BubbleSort(int[] a)
+        {
+            int temp;
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = i+1; j < a.Length; j++)
+                {
+                    if (a[i]>a[j])
+                    {
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                    }
+                }
+            }
+        }
+        /*
+         * 冒泡排序改进--鸡尾酒排序--O(n^2)
+         * */
+        static void CocktailSort(int[] a, int n)
+        {
+            int left = 0;                            // 初始化边界
+            int right = n - 1;
+            while (left < right)
+            {
+                for (int i = left; i < right; i++)   // 前半轮,将最大元素放到后面
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        Swap(a, i, i + 1);
+                    }
+                }
+                right--;
+                for (int i = right; i > left; i--)   // 后半轮,将最小元素放到前面
+                {
+                    if (a[i - 1] > a[i])
+                    {
+                        Swap(a, i - 1, i);
+                    }
+                }
+                left++;
+            }
+        }
+        static void Swap(int[] a,int i,int j)
+        {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+
+        /*
+         * 2.快速排序--O(nlog2n)
+         * */
+        static void QuickSort(int[] a,int left,int right)
+        {
+            if (left >= right)
+            {
+                return;
+            }
+            int i = left;
+            int j = right;
+            int key = a[i];
+            while (i < j)
+            {
+                while (i < j && a[j] >= key)
+                {
+                    j--;
+                }
+                a[i] = a[j];
+                while (i < j && a[i] <= key)
+                {
+                    i++;
+                }
+                a[j] = a[i];
+            }
+            a[i] = key;
+
+            QuickSort(a, left, i - 1);
+            QuickSort(a, i + 1, right);
+        }
+
+        /*
+         * 3.选择排序--O(n^2)
+         * */
+
+        static void SelectSort(int[] a,int n)
+        {
+            for (int i = 0; i < n-1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (a[min]>a[j])
+                    {
+                        min = j;
+                    }
+                }
+                if (i!=min)
+                {
+                    int temp = a[i];
+                    a[i] = a[min];
+                    a[min] = temp;
+                }
+            }
+        }
+
+        /*
+         * 插入排序--
+         * */
+
+
+        /*
+         * 归并排序--回溯
+         * */
+        static void MergeSort(int[] a, int first, int last, int[] temp)
+        {
+            if (first < last)
+            {
+                int mid = (first + last) / 2;
+                MergeSort(a, first, mid, temp);//回溯
+                MergeSort(a, mid + 1, last, temp);//回溯
+                MergeArray(a, first, mid, last, temp);//回溯
+            }
+
+        }
+        /*
+         * 合并有序数组
+         * */
+        static void MergeArray(int[] a,int first,int mid,int last,int[] temp)
+        {
+            int i = first;
+            int j = mid + 1;
+            int k = 0;
+            while (i<=mid&&j<=last)
+            {
+                if (a[i]<=a[j])
+                {
+                    temp[k++] = a[i++];
+                }
+                else
+                {
+                    temp[k++] = a[j++];
+                }
+            }
+            while (i <= mid)
+            {
+                temp[k++] = a[i++];
+            }
+            while (j <= last)
+            {
+                temp[k++] = a[j++];
+            }
+
+            for (i = 0; i < k; i++)
+            {
+                a[first + i] = temp[i];
+            }
+        }
+
+        /*
+         * 堆排序-如上所示
+         * */
 
         #endregion
 
         #region 小测试
 
         #endregion
-
     }
 
 }
